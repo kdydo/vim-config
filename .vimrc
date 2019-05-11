@@ -52,8 +52,13 @@ nmap <C-l> <C-w>l
 " save on ctrl-s
 nmap <c-s> :w<cr>
 imap <c-s> <esc>:w<cr>
+
 " colorizer
 let g:colorizer_auto_color = 1
+
+" quit on ctrl-q
+nmap <c-q> :q<cr>
+imap <c-q> <esc>:q<cr>
 
 " fzf
 map <C-p> :FZF<CR>
