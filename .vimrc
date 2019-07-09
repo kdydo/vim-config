@@ -27,12 +27,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
+Plug 'scrooloose/nerdcommenter'
 
 " Initialize plugin system
 call plug#end()
 
 set tabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set relativenumber
 set number
@@ -164,3 +165,4 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+filetype plugin on
