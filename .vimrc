@@ -24,6 +24,7 @@ Plug 'luochen1990/rainbow'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/lightline.vim'
 " Plug 'chrisbra/Colorizer'
+Plug 'Valloric/YouCompleteMe'
 Plug 'altercation/vim-colors-solarized'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
@@ -54,6 +55,9 @@ nmap <C-l> <C-w>l
 " save on ctrl-s
 nmap <c-s> :w<cr>
 imap <c-s> <esc>:w<cr>
+
+" exit insert mode
+inoremap hh <Esc>
 
 " colorizer
 let g:colorizer_auto_color = 1
