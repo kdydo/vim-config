@@ -12,7 +12,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
@@ -28,6 +28,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
+Plug 'kien/ctrlp.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -62,7 +63,12 @@ nmap <c-q> :q<cr>
 imap <c-q> <esc>:q<cr>
 
 " fzf
-map <C-p> :FZF<CR>
+" map <C-p> :FZF<CR>
+
+" ctrlp
+map <C-p> :CtrlP<CR>
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_show_hidden = 1
 
 " NERDTree
 map <C-b> :NERDTreeToggle<CR>
@@ -166,3 +172,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 filetype plugin on
+
+let &t_SI="\033[5 q" " start insert mode
+let &t_EI="\033[1 q" " end insert mode
