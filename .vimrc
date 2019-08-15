@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -28,7 +28,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'altercation/vim-colors-solarized'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 
 " Initialize plugin system
@@ -57,7 +57,7 @@ nmap <c-s> :w<cr>
 imap <c-s> <esc>:w<cr>
 
 " exit insert mode
-inoremap hh <Esc>
+inoremap jj <Esc>
 
 " colorizer
 let g:colorizer_auto_color = 1
@@ -179,3 +179,6 @@ filetype plugin on
 
 let &t_SI="\033[5 q" " start insert mode
 let &t_EI="\033[1 q" " end insert mode
+
+" ack/ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
