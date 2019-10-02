@@ -20,7 +20,7 @@ Plug '~/my-prototype-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/lightline.vim'
 " Plug 'chrisbra/Colorizer'
@@ -30,6 +30,7 @@ Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 " Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
@@ -148,10 +149,17 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " Replace filename component of Lightline statusline
+set background=light
 let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
       \ 'component_function': {
-      \   'filename': 'FilenameForLightline'
-      \ }
+      \  'gitbranch': 'fugitive#head',
+      \  'filename': 'FilenameForLightline'
+      \ },
       \ }
 
 " Show full path of filename
@@ -182,3 +190,6 @@ let &t_EI="\033[1 q" " end insert mode
 
 " ack/ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" color column 
+set colorcolumn=101
