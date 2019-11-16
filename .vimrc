@@ -168,6 +168,13 @@ let g:lightline = {
       \  'filename': 'FilenameForLightline'
       \ },
       \ }
+      
+" fugitive
+nnoremap <space>gs :Gstatus<CR>
+
+" YCM
+nnoremap <space>gD :YcmCompleter GoToDefinition<CR>
+nnoremap <space>d :YcmCompleter GetDoc<CR>
 
 " Show full path of filename
 function! FilenameForLightline()
