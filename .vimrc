@@ -32,6 +32,8 @@ Plug 'w0rp/ale'
 " Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Initialize plugin system
 call plug#end()
@@ -168,12 +170,13 @@ let g:lightline = {
       \  'filename': 'FilenameForLightline'
       \ },
       \ }
-      
+
 " fugitive
 nnoremap <space>gs :Gstatus<CR>
 
 " YCM
-nnoremap <space>gD :YcmCompleter GoToDefinition<CR>
+nnoremap <space>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <space>gr :YcmCompleter GoToReferences<CR>
 nnoremap <space>d :YcmCompleter GetDoc<CR>
 
 " Show full path of filename
@@ -184,9 +187,13 @@ endfunction
 hi Search ctermbg=LightYellow
 let g:NERDTreeNodeDelimiter = "\u00a0" 
 
-let g:ale_fixers = {
- \ 'javascript': ['eslint']
- \ }
+let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
 
 " let g:ale_sign_error = '❌'
 " let g:ale_sign_warning = '⚠️'
