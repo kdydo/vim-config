@@ -176,8 +176,13 @@ nnoremap <space>gs :Gstatus<CR>
 
 " YCM
 nnoremap <space>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <space>gt :YcmCompleter GoToType<CR>
 nnoremap <space>gr :YcmCompleter GoToReferences<CR>
 nnoremap <space>d :YcmCompleter GetDoc<CR>
+nnoremap <space>r :YcmCompleter RefactorRename<CR>
+nnoremap <space>f :YcmCompleter Format<CR>
+nnoremap <space>o :YcmCompleter OrganizeImports<CR>
+nnoremap <space>x :YcmCompleter FixIt<CR>
 
 " Show full path of filename
 function! FilenameForLightline()
