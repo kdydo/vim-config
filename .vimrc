@@ -76,6 +76,9 @@ let g:colorizer_auto_color = 1
 nmap <c-q> :q<cr>
 imap <c-q> <esc>:q<cr>
 
+" allow for the removal of characters directly after entering the edit mode
+set backspace=indent,eol,start
+
 " fzf
 " map <C-p> :FZF<CR>
 
