@@ -176,6 +176,9 @@ let g:lightline = {
 
 " fugitive
 nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gb :Gblame<CR>
+nnoremap <space>gf :Gdiff<CR>
+nnoremap <space>n :noh<CR>
 
 " YCM
 nnoremap <space>gd :YcmCompleter GoToDefinition<CR>
