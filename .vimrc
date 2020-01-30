@@ -33,7 +33,7 @@ Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+" Plug 'peitalin/vim-jsx-typescript'
 
 " Initialize plugin system
 call plug#end()
