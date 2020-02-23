@@ -34,6 +34,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 " Plug 'peitalin/vim-jsx-typescript'
+Plug 'camspiers/lens.vim'
 
 " Initialize plugin system
 call plug#end()
