@@ -1,23 +1,7 @@
-
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
-" Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
-
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/lightline.vim'
@@ -29,6 +13,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'camspiers/lens.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
@@ -73,9 +58,6 @@ imap <c-q> <esc>:q<cr>
 
 " allow for the removal of characters directly after entering the edit mode
 set backspace=indent,eol,start
-
-" fzf
-" map <C-p> :FZF<CR>
 
 " ctrlp
 map <C-p> :CtrlP<CR>
@@ -160,15 +142,11 @@ function! FilenameForLightline()
 endfunction
 
 hi Search ctermbg=LightYellow
-let g:NERDTreeNodeDelimiter = "\u00a0" 
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
-let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
-
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'tslint'],
-\   'vue': ['eslint']
-\}
+let g:ale_linters = { 'vue': ['eslint', 'vls'] }
+let g:ale_linter_aliases = { 'vue': ['javascript', 'vue'] }
+let g:ale_fixers = { '*': ['prettier', 'eslint'] }
 
 " let g:ale_sign_error = '❌'
 " let g:ale_sign_warning = '⚠️'
@@ -187,7 +165,7 @@ let &t_EI="\033[1 q" " end insert mode
 " ack/ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" color column 
+" color column
 " set colorcolumn=101
 
 " spell checker
