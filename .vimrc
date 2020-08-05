@@ -17,23 +17,23 @@ Plug '~/my-prototype-plugin'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
-Plug 'lifepillar/vim-solarized8'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'camspiers/lens.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Initialize plugin system
 call plug#end()
 
 set termguicolors
 set t_Co=256
-let g:solarized_termcolors=256
 set background=light
-colorscheme solarized8
+colorscheme PaperColor
 
 set tabstop=2
 set shiftwidth=2
@@ -69,6 +69,9 @@ imap <c-q> <esc>:q<cr>
 
 " allow for the removal of characters directly after entering the edit mode
 set backspace=indent,eol,start
+
+" theme
+let g:airline_theme='papercolor'
 
 " ctrlp
 map <C-p> :CtrlP<CR>
@@ -118,26 +121,13 @@ let g:closetag_shortcut = '>'
 "
 let g:closetag_close_shortcut = '<leader>>'
 
-" Replace filename component of Lightline statusline
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \  'gitbranch': 'fugitive#head',
-      \  'filename': 'FilenameForLightline'
-      \ },
-      \ }
-
 " fugitive
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gf :Gdiff<CR>
 nnoremap <space>n :noh<CR>
 
-" coc.nvim 
+" coc.nvim
 nmap <silent><space>gd <Plug>(coc-definition)
 nmap <silent><space>gi <Plug>(coc-implementation)
 nmap <silent><space>gt <Plug>(coc-type-definition)
@@ -148,7 +138,12 @@ nmap <space>r <Plug>(coc-rename)
 vmap <space>f  <Plug>(coc-format-selected)
 xmap <space>f  <Plug>(coc-format-selected)
 nmap <space>f  <Plug>(coc-format-selected)
-nmap <space>s :CocSearch 
+nmap <space>s :CocSearch
+nnoremap <silent> <space>e :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>m :<C-u>CocList -I symbols<cr>
+nmap <space>y  <Plug>(coc-codeaction)
+xmap <space>a  <Plug>(coc-codeaction-selected)
+nmap <space>a  <Plug>(coc-codeaction-selected)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
