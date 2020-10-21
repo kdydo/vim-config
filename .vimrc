@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-eslint',
+  \ 'coc-flow',
   \ 'coc-highlight',
   \ 'coc-html',
   \ 'coc-json',
@@ -20,12 +21,13 @@ Plug 'alvan/vim-closetag'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'camspiers/lens.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -73,10 +75,8 @@ set backspace=indent,eol,start
 " theme
 let g:airline_theme='papercolor'
 
-" ctrlp
-map <C-p> :CtrlP<CR>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|next\|storybook-static'
-let g:ctrlp_show_hidden = 1
+" fzf
+map <C-p> :GFiles --cached --others --exclude-standard<CR>
 
 " NERDTree
 map <C-x> :NERDTreeFind<CR>
@@ -127,7 +127,7 @@ nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gf :Gdiff<CR>
 nnoremap <space>n :noh<CR>
 
-" coc.nvim
+" coc.nvim 
 nmap <silent><space>gd <Plug>(coc-definition)
 nmap <silent><space>gi <Plug>(coc-implementation)
 nmap <silent><space>gt <Plug>(coc-type-definition)
@@ -138,7 +138,7 @@ nmap <space>r <Plug>(coc-rename)
 vmap <space>f  <Plug>(coc-format-selected)
 xmap <space>f  <Plug>(coc-format-selected)
 nmap <space>f  <Plug>(coc-format-selected)
-nmap <space>s :CocSearch
+nmap <space>s :CocSearch 
 nnoremap <silent> <space>e :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>m :<C-u>CocList -I symbols<cr>
 nmap <space>y  <Plug>(coc-codeaction)
