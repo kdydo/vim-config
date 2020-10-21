@@ -127,7 +127,7 @@ nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gf :Gdiff<CR>
 nnoremap <space>n :noh<CR>
 
-" coc.nvim 
+" coc.nvim
 nmap <silent><space>gd <Plug>(coc-definition)
 nmap <silent><space>gi <Plug>(coc-implementation)
 nmap <silent><space>gt <Plug>(coc-type-definition)
@@ -138,7 +138,7 @@ nmap <space>r <Plug>(coc-rename)
 vmap <space>f  <Plug>(coc-format-selected)
 xmap <space>f  <Plug>(coc-format-selected)
 nmap <space>f  <Plug>(coc-format-selected)
-nmap <space>s :CocSearch 
+nmap <space>s :CocSearch
 nnoremap <silent> <space>e :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>m :<C-u>CocList -I symbols<cr>
 nmap <space>y  <Plug>(coc-codeaction)
@@ -194,3 +194,4 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
